@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {rotateButton} from 'theme/keyFrames';
 
 const Button = styled.button`
 position: relative;
@@ -8,7 +9,10 @@ background-color: ${({ theme }) => theme.button};
 padding: 25px;
 border: none;
 border-radius: 50%;
-
+:hover{
+        animation: ${rotateButton} 1.5s ease-in infinite;
+        cursor: pointer;
+    }
 span{
     position: absolute;
     display:block;
