@@ -1,9 +1,11 @@
 export const theme = {
   background: '#4488D1',
+  backgroundTransparent: '#5D9BDD80',
   liked: '#A4BD57',
-  notliked: '#D9502E',
-  neutral: '#E1E6EA',
+  notliked: '#D9502E', vbgf
   button: '#F5D44F',
   buttonCross: '#F2A034',
   lines: '#57A8FF',
+  normal: 400,
+  bold: 700,
 };

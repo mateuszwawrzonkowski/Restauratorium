@@ -7,7 +7,7 @@ export default {
   component: Button,
 };
 
-export const AddButton = () => (
+export const AddRestaurant = () => (
   <Button onClick={action('clicked')}>
     <span />
   </Button>

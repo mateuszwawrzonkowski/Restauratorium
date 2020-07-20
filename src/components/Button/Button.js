@@ -4,7 +4,7 @@ const Button = styled.button`
 position: relative;
 height:80px;
 width:80px;
-background-color: #F5D44F;
+background-color: ${({ theme }) => theme.button};
 padding: 25px;
 border: none;
 border-radius: 50%;
@@ -18,7 +18,7 @@ span{
     width: 40px;
     height: 6px;
     border-radius: 2px;
-    background-color: #F2A034;
+    background-color: ${({ theme }) => theme.buttonCross};
     &::before{
         content:"";
         display:block;
@@ -26,7 +26,7 @@ span{
         width: 40px;
         height: 6px;
         border-radius: 2px;
-        background-color: #F2A034;
+        background-color: ${({ theme }) => theme.buttonCross};
     }
 }
 `;
