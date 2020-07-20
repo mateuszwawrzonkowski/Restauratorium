@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {rotateButton} from 'theme/keyFrames';
 
 const Button = styled.button`
@@ -32,6 +32,29 @@ span{
         border-radius: 2px;
         background-color: ${({ theme }) => theme.buttonCross};
     }
+}
+
+${({remove})=>
+    remove && css`
+    position:absolute;
+    height:20px;
+    width:20px;
+    bottom:10px;
+    right:10px;
+    transform:rotate(45deg);
+    animation: none;
+    :hover{
+        animation:none;
+    }
+    span{
+    width: 25px;
+    height: 4px;
+    &::before{
+        content:"";
+        width: 25px;
+        height: 4px;
+    }
+    `
 }
 `;
 

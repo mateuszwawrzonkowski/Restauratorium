@@ -12,3 +12,9 @@ export const AddRestaurant = () => (
     <span />
   </Button>
 );
+
+export const RemoveButton = () => (
+  <Button remove onClick={action('clicked')}>
+    <span />
+  </Button>
+);
