@@ -15,6 +15,10 @@ body{
     font-size:1.6rem;
     font-family: "Montserrat", sans-serif;
 }
+
+a{
+    word-wrap: break-all;
+}
 `;
 
 export default GlobalStyle;

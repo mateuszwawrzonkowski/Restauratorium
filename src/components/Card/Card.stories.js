@@ -6,6 +6,12 @@ export default {
   component: Card,
 };
 
-export const RestaurantCard = () => (
-  <Card>hello</Card>
+export const Unvisited = () => (
+  <Card />
+);
+export const Liked = () => (
+  <Card liked />
+);
+export const Notliked = () => (
+  <Card notliked />
 );

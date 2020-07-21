@@ -3,7 +3,7 @@ export const theme = {
   backgroundTransparent: '#5D9BDD80',
   liked: '#A4BD57',
   notliked: '#D9502E',
-  notvisited: '#888888',
+  unvisited: '#888888',
   button: '#F5D44F',
   buttonCross: '#F2A034',
   lines: '#57A8FF',

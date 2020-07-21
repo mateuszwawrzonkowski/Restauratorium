@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components';
-import {rotateButton} from 'theme/keyFrames';
+import styled, { css } from 'styled-components';
+import { rotateButton } from 'theme/keyFrames';
 
 const Button = styled.button`
 position: relative;
@@ -34,8 +34,7 @@ span{
     }
 }
 
-${({remove})=>
-    remove && css`
+${({ remove }) => remove && css`
     position:absolute;
     height:20px;
     width:20px;
@@ -54,8 +53,7 @@ ${({remove})=>
         width: 25px;
         height: 4px;
     }
-    `
-}
+    `}
 `;
 
 export default Button;
