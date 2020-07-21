@@ -7,11 +7,11 @@ export default {
 };
 
 export const Unvisited = () => (
-  <Card />
+  <Card status="unvisited" />
 );
 export const Liked = () => (
-  <Card liked />
+  <Card status="liked" />
 );
 export const Notliked = () => (
-  <Card notliked />
+  <Card status="notliked" />
 );

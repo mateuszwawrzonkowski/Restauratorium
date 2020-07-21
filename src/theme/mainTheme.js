@@ -8,5 +8,6 @@ export const theme = {
   buttonCross: '#F2A034',
   lines: '#57A8FF',
   normal: 400,
+  medium: 600,
   bold: 700,
 };

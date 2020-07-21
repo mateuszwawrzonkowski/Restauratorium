@@ -9,6 +9,7 @@ background-color: ${({ theme }) => theme.button};
 padding: 25px;
 border: none;
 border-radius: 50%;
+outline: none;
 :hover{
         animation: ${rotateButton} 1.5s ease-in infinite;
         cursor: pointer;
@@ -36,21 +37,22 @@ span{
 
 ${({ remove }) => remove && css`
     position:absolute;
-    height:20px;
-    width:20px;
+    height:35px;
+    width:35px;
     bottom:10px;
     right:10px;
+    padding:0;
     transform:rotate(45deg);
     animation: none;
     :hover{
         animation:none;
     }
     span{
-    width: 25px;
+    width: 20px;
     height: 4px;
     &::before{
         content:"";
-        width: 25px;
+        width: 20px;
         height: 4px;
     }
     `}

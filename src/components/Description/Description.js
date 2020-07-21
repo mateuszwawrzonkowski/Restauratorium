@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 const Description = styled.p`
     margin:0 15px;
-    font-size: 1.6rem;
-    line-height: 25px;
+    line-height: 20px;
 `;
 
 export default Description;
