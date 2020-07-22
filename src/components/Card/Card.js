@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Heading from 'components/Heading/Heading';
 import Description from 'components/Description/Description';
 import Link from 'components/Link/Link';
@@ -59,5 +60,13 @@ const Card = ({ status }) => (
     </ContentWrapper>
   </CardWrapper>
 );
+
+Card.propTypes = {
+  status: PropTypes.oneOf(['unvisited', 'liked', 'notliked']),
+};
+
+Card.defaultProps = {
+  status: 'unvisited',
+};
 
 export default Card;
