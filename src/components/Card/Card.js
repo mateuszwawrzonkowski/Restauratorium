@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Heading from 'components/Heading/Heading';
-import Description from 'components/Description/Description';
 import Link from 'components/Link/Link';
 import Button from 'components/Button/Button';
 
@@ -47,7 +45,14 @@ const ContentWrapper = styled.div`
     transition:0.4s;
     font-weight: ${({ theme }) => theme.medium};
 `;
-
+const Heading = styled.h1`
+    color: white;
+    text-align: uppercase;
+`;
+const Description = styled.p`
+    margin:0 15px;
+    line-height: 20px;
+`;
 const Card = ({ status }) => (
   <CardWrapper status={status}>
     <HeadingWrapper status={status}>
