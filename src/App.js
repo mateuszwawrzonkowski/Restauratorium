@@ -1,8 +1,18 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'theme/globalStyles';
-import Button from 'components/Button/Button';
 import { theme } from 'theme/mainTheme';
+import Input from 'components/Input/Input';
+import SelectionMenu from 'components/SelectionMenu/SelectionMenu';
+
+const MainWrapper = styled.div`
+   /* display: flex; */
+   flex-direction: column;
+   margin: 0 auto;
+   width: 1165px;
+   height: 100vh;
+   background-color: black;
+`;
 
 function App() {
   return (
@@ -10,9 +20,10 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <>
-          <Button>
-            <span />
-          </Button>
+          <MainWrapper>
+            <Input />
+            <SelectionMenu />
+          </MainWrapper>
         </>
       </ThemeProvider>
     </>

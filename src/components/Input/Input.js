@@ -3,6 +3,7 @@ import searchIcon from 'assets/search-solid.svg';
 
 const Input = styled.input`
     padding: 10px 20px 10px 50px;
+    margin: 24px 0 16px 0;
     font-size: 1.6rem;
     background-color: ${({ theme }) => theme.backgroundTransparent};
     color: ${({ theme }) => theme.background};
