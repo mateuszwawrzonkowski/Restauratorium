@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+import store from 'store';
 import GlobalStyle from 'theme/globalStyles';
 import { theme } from 'theme/mainTheme';
 import Input from 'components/Input/Input';
@@ -23,19 +25,21 @@ const MainWrapper = styled.div`
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <>
-          <Background>
-            <MainWrapper>
-              <Input placeholder="search" />
-              <SelectionMenu />
-              <RestaurantsCards />
-            </MainWrapper>
-            <Button><span /></Button>
-          </Background>
-        </>
-      </ThemeProvider>
+      <Provider store={store}>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <>
+            <Background>
+              <MainWrapper>
+                <Input placeholder="search" />
+                <SelectionMenu />
+                <RestaurantsCards />
+              </MainWrapper>
+              <Button><span /></Button>
+            </Background>
+          </>
+        </ThemeProvider>
+      </Provider>
     </>
   );
 }

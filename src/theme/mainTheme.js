@@ -1,10 +1,10 @@
 export const theme = {
   background: '#4488D1',
   backgroundTransparent: '#5D9BDD80',
-  scrollbar: '#3a6ab3',
+  scrollbar: '#3A6AB3',
   liked: '#A4BD57',
   notliked: '#D9502E',
-  unvisited: '#AAA',
+  unvisited: '#D3D3D3',
   button: '#F5D44F',
   buttonCross: '#F2A034',
   lines: '#57A8FF',
