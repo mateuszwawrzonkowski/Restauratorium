@@ -10,6 +10,7 @@ const Wrapper = styled.div`
     height: 70px;
     background-color: ${({ theme }) => theme.backgroundTransparent};
     border-radius: 45px;
+    margin-bottom: 45px;
 `;
 
 const SelectionButton = styled.button`
@@ -17,7 +18,7 @@ const SelectionButton = styled.button`
   justify-content:center;
   flex-basis:33.33%;
   color: ${({ theme }) => theme.unvisited};
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
   font-size: 3.6rem;
   font-weight:${({ theme }) => theme.bold};
   text-transform: uppercase;

@@ -2,9 +2,11 @@ import styled, { css } from 'styled-components';
 import { rotateButton } from 'theme/keyFrames';
 
 const Button = styled.button`
-position: relative;
-height:80px;
-width:80px;
+position: fixed;
+right: 10px;
+bottom: 10px;
+height:70px;
+width:70px;
 background-color: ${({ theme }) => theme.button};
 padding: 25px;
 border: none;
@@ -79,7 +81,7 @@ ${({ remove }) => remove && css`
     }
     `}
 
-    ${({ add }) => add && css`
+    ${({ modalAdd }) => modalAdd && css`
     height:35px;
     width: 85px;
     border-radius: 0px;

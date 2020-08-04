@@ -112,7 +112,7 @@ const AddRestaurantForm = () => (
         <Label htmlFor="description">Description</Label>
       </InputItem>
     </Form>
-    <Button add>Add</Button>
+    <Button modalAdd>Add</Button>
   </FormWrapper>
 );
 

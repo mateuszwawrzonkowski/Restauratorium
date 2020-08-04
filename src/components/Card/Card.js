@@ -9,8 +9,9 @@ const CardWrapper = styled.div`
    flex-direction:column;
    height: 295px;
    width: 310px;
+   margin-bottom: 50px;
    border-radius:5px;
-   background-image: url(https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93303605_513901102638363_4212623255288152064_o.jpg?_nc_cat=105&_nc_sid=dd9801&_nc_ohc=fwxx1cdksp0AX-rV2em&_nc_ht=scontent-waw1-1.xx&oh=acb18bd9f16e722462af7d91f5ad5433&oe=5F3A9FCF);
+   background-image: url(${(props) => props.imageUrl});
    background-size:cover;
    background-repeat:no-repeat;
    border: 3px solid ${({ status, theme }) => (status ? theme[status] : theme.unvisited)};
@@ -48,29 +49,40 @@ const ContentWrapper = styled.div`
 const Heading = styled.h1`
     color: white;
     text-align: uppercase;
+    font-size:2.8rem;
 `;
 const Description = styled.p`
     margin:0 15px;
     line-height: 20px;
 `;
-const Card = ({ status }) => (
-  <CardWrapper status={status}>
+const Card = ({
+  name, link, imageUrl, description, status,
+}) => (
+  <CardWrapper status={status} imageUrl={imageUrl}>
     <HeadingWrapper status={status}>
-      <Heading>KURA</Heading>
+      <Heading>{name}</Heading>
     </HeadingWrapper>
     <ContentWrapper>
-      <Description>Restaurant with the best chicken in the world</Description>
-      <Link href="https://www.facebook.com/restauracjakura">https://www.facebook.com/restauracjakura</Link>
+      <Description>{description}</Description>
+      <Link href={link} target="_blank">{link}</Link>
       <Button remove><span /></Button>
     </ContentWrapper>
   </CardWrapper>
 );
 
 Card.propTypes = {
+  name: PropTypes.string,
+  link: PropTypes.string,
+  imageUrl: PropTypes.string,
+  description: PropTypes.string,
   status: PropTypes.oneOf(['unvisited', 'liked', 'notliked']),
 };
 
 Card.defaultProps = {
+  name: '',
+  link: '',
+  imageUrl: '',
+  description: '',
   status: 'unvisited',
 };
 

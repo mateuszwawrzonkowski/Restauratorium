@@ -4,14 +4,20 @@ import GlobalStyle from 'theme/globalStyles';
 import { theme } from 'theme/mainTheme';
 import Input from 'components/Input/Input';
 import SelectionMenu from 'components/SelectionMenu/SelectionMenu';
+import RestaurantsCards from 'components/RestaurantsCards/RestaurantsCards';
+import background from 'assets/background.png';
+import Button from 'components/Button/Button';
+
+const Background = styled.div`
+   background: url(${background});
+   background-size:cover;
+`;
 
 const MainWrapper = styled.div`
-   /* display: flex; */
-   flex-direction: column;
    margin: 0 auto;
    width: 1165px;
-   height: 100vh;
-   background-color: black;
+   max-height: 100vh;
+   overflow: hidden;
 `;
 
 function App() {
@@ -20,10 +26,14 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <>
-          <MainWrapper>
-            <Input />
-            <SelectionMenu />
-          </MainWrapper>
+          <Background>
+            <MainWrapper>
+              <Input placeholder="search" />
+              <SelectionMenu />
+              <RestaurantsCards />
+            </MainWrapper>
+            <Button><span /></Button>
+          </Background>
         </>
       </ThemeProvider>
     </>

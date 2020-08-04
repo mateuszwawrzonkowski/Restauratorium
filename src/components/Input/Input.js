@@ -5,8 +5,9 @@ const Input = styled.input`
     padding: 10px 20px 10px 50px;
     margin: 24px 0 16px 0;
     font-size: 1.6rem;
+    font-weight: ${({ theme }) => theme.bold};
     background-color: ${({ theme }) => theme.backgroundTransparent};
-    color: ${({ theme }) => theme.background};
+    color: white;
     border-radius: 20px;
     border: none;
     background-image: url(${searchIcon});
@@ -17,10 +18,14 @@ const Input = styled.input`
     ::placeholder{
       text-transform: uppercase;
       font-size: 1.6rem;
-      color: ${({ theme }) => theme.background};
+      color: white;
+      letter-spacing: 1px;
     }
     :focus{
         outline: none;
+    }
+    :focus::placeholder {
+     color: transparent;
     }
 `;
 
