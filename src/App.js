@@ -7,12 +7,14 @@ import { theme } from 'theme/mainTheme';
 import Input from 'components/Input/Input';
 import SelectionMenu from 'components/SelectionMenu/SelectionMenu';
 import RestaurantsCards from 'components/RestaurantsCards/RestaurantsCards';
+import Modal from 'components/Modal/Modal';
 import background from 'assets/background.png';
 import Button from 'components/Button/Button';
 
 const Background = styled.div`
    background: url(${background});
    background-size:cover;
+   height:100vh;
 `;
 
 const MainWrapper = styled.div`
@@ -36,6 +38,7 @@ function App() {
                 <RestaurantsCards />
               </MainWrapper>
               <Button><span /></Button>
+              <Modal />
             </Background>
           </>
         </ThemeProvider>

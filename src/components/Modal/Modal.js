@@ -14,6 +14,7 @@ const ModalWrapper = styled.div`
     background-color: #CEF6FF;
     border: 5px solid #006299;
     border-radius:5px;
+    z-index: 999;
 `;
 
 const Modal = () => (

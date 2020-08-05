@@ -20,6 +20,7 @@ const RestaurantsCards = ({ cards }) => (
     }) => (
       <Card
         key={id}
+        id={id}
         name={name}
         imageUrl={imageUrl}
         link={link}
@@ -29,11 +30,6 @@ const RestaurantsCards = ({ cards }) => (
     ))}
   </Wrapper>
 );
-
-const mapStateToProps = (state) => {
-  const { cards } = state;
-  return { cards };
-};
 
 RestaurantsCards.propTypes = {
   cards: PropTypes.arrayOf(
@@ -49,6 +45,11 @@ RestaurantsCards.propTypes = {
 
 RestaurantsCards.defaultProps = {
   cards: [],
+};
+
+const mapStateToProps = (state) => {
+  const { cards } = state;
+  return { cards };
 };
 
 export default connect(mapStateToProps)(RestaurantsCards);

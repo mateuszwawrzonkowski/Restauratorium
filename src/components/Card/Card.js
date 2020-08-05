@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Link from 'components/Link/Link';
 import Button from 'components/Button/Button';
+import { connect } from 'react-redux';
+import { removeCard } from 'actions';
 
 const CardWrapper = styled.div`
    display:flex;
@@ -56,26 +58,28 @@ const Description = styled.p`
     line-height: 20px;
 `;
 const Card = ({
-  name, link, imageUrl, description, status,
+  id, name, link, imageUrl, description, status, removeCard,
 }) => (
-  <CardWrapper status={status} imageUrl={imageUrl}>
+  <CardWrapper id={id} status={status} imageUrl={imageUrl}>
     <HeadingWrapper status={status}>
       <Heading>{name}</Heading>
     </HeadingWrapper>
     <ContentWrapper>
       <Description>{description}</Description>
       <Link href={link} target="_blank">{link}</Link>
-      <Button remove><span /></Button>
+      <Button onClick={() => removeCard(id)} remove><span /></Button>
     </ContentWrapper>
   </CardWrapper>
 );
 
 Card.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string,
   link: PropTypes.string,
   imageUrl: PropTypes.string,
   description: PropTypes.string,
   status: PropTypes.oneOf(['unvisited', 'liked', 'notliked']),
+  removeCard: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {
@@ -86,4 +90,8 @@ Card.defaultProps = {
   status: 'unvisited',
 };
 
-export default Card;
+const mapDispatchToProps = (dispatch) => ({
+  removeCard: (id) => dispatch(removeCard(id)),
+});
+
+export default connect(null, mapDispatchToProps)(Card);
