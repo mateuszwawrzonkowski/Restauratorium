@@ -96,7 +96,6 @@ ${({ remove }) => remove && css`
         animation:none;
     }
     `}
-    
 `;
 
 export default Button;

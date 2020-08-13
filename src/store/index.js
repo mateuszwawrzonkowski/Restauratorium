@@ -1,9 +1,9 @@
 import { createStore } from 'redux';
-import cards from 'reducers';
+import rootReducer from 'reducers';
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
-  cards /* preloadedState, */,
+  rootReducer /* preloadedState, */,
   window.__REDUX_DEVTOOLS_EXTENSION__
   && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );

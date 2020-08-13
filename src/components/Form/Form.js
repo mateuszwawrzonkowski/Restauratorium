@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
+import { connect } from 'react-redux';
+import { addCard } from 'actions';
 
 const FormWrapper = styled.div`
     display: flex;
@@ -65,7 +68,6 @@ const TextArea = styled.textarea`
   resize:none;
   font-size: 2rem;
   padding:10px;
-  text-transform: capitalize;
   :focus{
     +label{
       transform:scale(0.8);
@@ -73,47 +75,79 @@ const TextArea = styled.textarea`
   }
 `;
 
-const AddRestaurantForm = () => (
-  <FormWrapper>
-    <Button close><span /></Button>
-    <Title>Add new restaurant</Title>
-    <Form>
-      <InputItem>
-        <Input
-          type="text"
-          name="name"
-          id="name"
-        />
-        <Label htmlFor="name">Restaurant name</Label>
-      </InputItem>
-      <InputItem>
-        <Input
-          type="text"
-          name="link"
-          id="link"
-        />
-        <Label htmlFor="link">Facebook link</Label>
-      </InputItem>
-      <InputItem>
-        <Input
-          type="text"
-          name="image"
-          id="image"
-        />
-        <Label htmlFor="image">Image Url</Label>
-      </InputItem>
-      <InputItem>
-        <TextArea
-          name="description"
-          id="description"
-          maxlength="20"
-          placeholder="Short description about restaurant (type of food, prices)"
-        />
-        <Label htmlFor="description">Description</Label>
-      </InputItem>
-    </Form>
-    <Button modalAdd>Add</Button>
-  </FormWrapper>
-);
+const AddRestaurantForm = ({ addCard }) => {
+  const [name, setName] = useState('');
+  const [link, setLink] = useState('');
+  const [imageUrl, setImage] = useState('');
+  const [description, setDescription] = useState('');
+  return (
+    <FormWrapper>
+      <Title>Add new restaurant</Title>
+      <Form>
+        <InputItem>
+          <Input
+            type="text"
+            name="name"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <Label htmlFor="name">Restaurant name</Label>
+        </InputItem>
+        <InputItem>
+          <Input
+            type="text"
+            name="link"
+            id="link"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+          />
+          <Label htmlFor="link">Facebook link</Label>
+        </InputItem>
+        <InputItem>
+          <Input
+            type="text"
+            name="image"
+            id="image"
+            value={imageUrl}
+            onChange={(e) => setImage(e.target.value)}
+          />
+          <Label htmlFor="image">Image Url</Label>
+        </InputItem>
+        <InputItem>
+          <TextArea
+            name="description"
+            id="description"
+            maxlength="20"
+            placeholder="Short description about restaurant (type of food, prices)"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <Label htmlFor="description">Description</Label>
+        </InputItem>
+      </Form>
+      <Button
+        onClick={() => addCard({
+          name,
+          link,
+          imageUrl,
+          description,
+        })}
+        modalAdd
+      >
+        Add
 
-export default AddRestaurantForm;
+      </Button>
+    </FormWrapper>
+  );
+};
+
+AddRestaurantForm.propTypes = {
+  addCard: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  addCard: (cardContent) => dispatch(addCard(cardContent)),
+});
+
+export default connect(null, mapDispatchToProps)(AddRestaurantForm);

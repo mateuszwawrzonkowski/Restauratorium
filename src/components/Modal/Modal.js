@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Form from 'components/Form/Form';
+import Button from 'components/Button/Button';
 
 const ModalWrapper = styled.div`
     position: fixed;
@@ -17,10 +19,24 @@ const ModalWrapper = styled.div`
     z-index: 999;
 `;
 
-const Modal = () => (
-  <ModalWrapper>
-    <Form />
-  </ModalWrapper>
+const Modal = ({ isShowing, toggle }) => (
+  isShowing && (
+    <>
+      <ModalWrapper>
+        <Button onClick={toggle} close><span /></Button>
+        <Form />
+      </ModalWrapper>
+    </>
+  )
 );
+
+Modal.propTypes = {
+  isShowing: PropTypes.bool,
+  toggle: PropTypes.func.isRequired,
+};
+
+Modal.defaultProps = {
+  isShowing: false,
+};
 
 export default Modal;

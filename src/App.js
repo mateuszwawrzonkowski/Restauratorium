@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import store from 'store';
 import GlobalStyle from 'theme/globalStyles';
 import { theme } from 'theme/mainTheme';
-import Input from 'components/Input/Input';
+import SearchInput from 'components/Input/SearchInput';
 import SelectionMenu from 'components/SelectionMenu/SelectionMenu';
 import RestaurantsCards from 'components/RestaurantsCards/RestaurantsCards';
 import Modal from 'components/Modal/Modal';
@@ -25,6 +25,12 @@ const MainWrapper = styled.div`
 `;
 
 function App() {
+  const [isShowing, setIsShowing] = useState(false);
+
+  function toggleModal() {
+    setIsShowing(!isShowing);
+  }
+
   return (
     <>
       <Provider store={store}>
@@ -33,12 +39,12 @@ function App() {
           <>
             <Background>
               <MainWrapper>
-                <Input placeholder="search" />
+                <SearchInput />
                 <SelectionMenu />
                 <RestaurantsCards />
               </MainWrapper>
-              <Button><span /></Button>
-              <Modal />
+              <Button onClick={toggleModal}><span /></Button>
+              <Modal isShowing={isShowing} toggle={toggleModal} />
             </Background>
           </>
         </ThemeProvider>

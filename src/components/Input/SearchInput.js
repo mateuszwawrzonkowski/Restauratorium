@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import searchIcon from 'assets/search-solid.svg';
 
@@ -29,4 +30,8 @@ const Input = styled.input`
     }
 `;
 
-export default Input;
+const SearchInput = () => (
+  <Input placeholder="search" />
+);
+
+export default SearchInput;

@@ -69,6 +69,12 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ('ADD_CARD'):
+      return {
+        ...state,
+        cards: [...state.cards,
+          action.payload.card],
+      };
     case ('REMOVE_CARD'):
       return {
         ...state,
