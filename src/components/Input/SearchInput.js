@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import searchIcon from 'assets/search-solid.svg';
+import { searchCard } from 'actions';
 
 const Input = styled.input`
     padding: 10px 20px 10px 50px;
@@ -30,8 +32,12 @@ const Input = styled.input`
     }
 `;
 
-const SearchInput = () => (
-  <Input placeholder="search" />
+const SearchInput = ({ searchCard }) => (
+  <Input placeholder="search" onChange={(e) => searchCard(e.target.value)} />
 );
 
-export default SearchInput;
+const mapDispatchToProps = (dispatch) => ({
+  searchCard: (value) => dispatch(searchCard(value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

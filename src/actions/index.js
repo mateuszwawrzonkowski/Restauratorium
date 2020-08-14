@@ -17,3 +17,10 @@ export const addCard = (cardContent) => {
     },
   };
 };
+
+export const searchCard = (value) => ({
+  type: 'SEARCH_CARD',
+  payload: {
+    value,
+  },
+});

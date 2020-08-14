@@ -24,7 +24,7 @@ const Modal = ({ isShowing, toggle }) => (
     <>
       <ModalWrapper>
         <Button onClick={toggle} close><span /></Button>
-        <Form />
+        <Form toggle={toggle} />
       </ModalWrapper>
     </>
   )

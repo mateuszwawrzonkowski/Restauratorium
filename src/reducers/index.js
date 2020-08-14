@@ -80,6 +80,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cards: state.cards.filter((item) => item.id !== action.payload.id),
       };
+    case ('SEARCH_CARD'):
+      return {
+        ...state,
+        cards: state.cards.filter((item) => item.name.toLowerCase().includes(action.payload.value)),
+      };
     default:
       return state;
   }
