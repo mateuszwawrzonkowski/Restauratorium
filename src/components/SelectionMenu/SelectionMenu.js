@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { VisibilityFilters } from 'actions';
+import SelectionButton from 'components/SelectionButton/SelectionButton';
 
 const Wrapper = styled.div`
     display:flex;
@@ -12,52 +14,33 @@ const Wrapper = styled.div`
     border-radius: 45px;
     margin-bottom: 45px;
 `;
-
-const SelectionButton = styled.button`
-  display:flex;
-  justify-content:center;
-  flex-basis:33.33%;
-  color: ${({ theme }) => theme.unvisited};
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
-  font-size: 3.6rem;
-  font-weight:${({ theme }) => theme.bold};
-  text-transform: uppercase;
-  cursor: pointer;
-  background-color:transparent;
-  border:none;
-  outline:none;
-  transition:0.4s;
-      :first-child{
-      color: ${({ theme }) => theme.liked};
-    }
-      :last-child{
-        color: ${({ theme }) => theme.notliked};
-    }
-    :hover{
-      transform:scale(1.15);
-    }
-`;
 const Line = styled.span`
     position: absolute;
     display:block;
-    left: 33.33%;
+    left:25%;
     top:50%;
     transform: translate(-50%,-50%);
     height: 20px;
     width:3px;
     background-color: #57A8FF;
-    :nth-child(2){
-      left: 66.66%;
+    :nth-child(4){
+      left: 50%;
     }
+    :nth-child(6) {
+      left:75%;
+}
+    
 `;
 
 const SelectionMenu = () => (
   <Wrapper>
-    <SelectionButton>liked</SelectionButton>
+    <SelectionButton filter={VisibilityFilters.SHOW_LIKED}>liked</SelectionButton>
     <Line />
-    <SelectionButton>unvisited</SelectionButton>
+    <SelectionButton filter={VisibilityFilters.SHOW_UNVISITED}>unvisited</SelectionButton>
     <Line />
-    <SelectionButton>not liked</SelectionButton>
+    <SelectionButton filter={VisibilityFilters.SHOW_NOTLIKED}>not liked</SelectionButton>
+    <Line />
+    <SelectionButton filter={VisibilityFilters.SHOW_ALL}>ALL</SelectionButton>
   </Wrapper>
 );
 

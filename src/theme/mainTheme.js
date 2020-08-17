@@ -5,6 +5,7 @@ export const theme = {
   liked: '#A4BD57',
   notliked: '#D9502E',
   unvisited: '#D3D3D3',
+  all: '#FFFFFF',
   button: '#F5D44F',
   buttonCross: '#F2A034',
   lines: '#57A8FF',

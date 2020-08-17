@@ -40,4 +40,4 @@ const mapDispatchToProps = (dispatch) => ({
   searchCard: (value) => dispatch(searchCard(value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);
+export default connect(null, mapDispatchToProps)(SearchInput);

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Card from 'components/Card/Card';
+import { VisibilityFilters } from 'actions';
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,9 +48,23 @@ RestaurantsCards.defaultProps = {
   cards: [],
 };
 
-const mapStateToProps = (state) => {
-  const { cards } = state;
-  return { cards };
+const filterCards = (cards, filter) => {
+  switch (filter) {
+    case VisibilityFilters.SHOW_ALL:
+      return cards.filter((card) => card);
+    case VisibilityFilters.SHOW_LIKED:
+      return cards.filter((card) => card.status === 'liked');
+    case VisibilityFilters.SHOW_UNVISITED:
+      return cards.filter((card) => card.status === 'unvisited');
+    case VisibilityFilters.SHOW_NOTLIKED:
+      return cards.filter((card) => card.status === 'notliked');
+    default:
+      return cards;
+  }
 };
+
+const mapStateToProps = (state) => ({
+  cards: filterCards(state.rootReducer.cards, state.visibilityFilter),
+});
 
 export default connect(mapStateToProps)(RestaurantsCards);

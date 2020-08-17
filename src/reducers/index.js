@@ -1,3 +1,6 @@
+import { combineReducers } from 'redux';
+import visibilityFilter from 'reducers/visibilityFilters';
+
 const initialState = {
   cards: [
     {
@@ -90,4 +93,7 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer;
+export default combineReducers({
+  rootReducer,
+  visibilityFilter,
+});

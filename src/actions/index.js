@@ -24,3 +24,15 @@ export const searchCard = (value) => ({
     value,
   },
 });
+
+export const setVisibilityFilter = (filter) => ({
+  type: 'SET_VISIBILITY_FILTER',
+  filter,
+});
+
+export const VisibilityFilters = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_LIKED: 'SHOW_LIKED',
+  SHOW_UNVISITED: 'SHOW_UNVISITED',
+  SHOW_NOTLIKED: 'SHOW_NOTLIKED',
+};
