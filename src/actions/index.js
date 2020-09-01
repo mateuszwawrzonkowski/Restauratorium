@@ -25,6 +25,14 @@ export const searchCard = (value) => ({
   },
 });
 
+export const changeStatus = (id, status) => ({
+  type: 'CHANGE_STATUS',
+  payload: {
+    id,
+    status,
+  },
+});
+
 export const setVisibilityFilter = (filter) => ({
   type: 'SET_VISIBILITY_FILTER',
   filter,

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'components/Link/Link';
 import Button from 'components/Button/Button';
 import { connect } from 'react-redux';
-import { removeCard } from 'actions';
+import { removeCard, changeStatus } from 'actions';
 
 const CardWrapper = styled.div`
    display:flex;
@@ -29,6 +29,7 @@ align-items: center;
 height: 50px;
 width: 100%;
 background-color: ${({ status, theme }) => (status ? theme[status] : theme.unvisited)};
+cursor: pointer;
 `;
 
 const ContentWrapper = styled.div`
@@ -58,10 +59,10 @@ const Description = styled.p`
     line-height: 20px;
 `;
 const Card = ({
-  id, name, link, imageUrl, description, status, removeCard,
+  id, name, link, imageUrl, description, status, removeCard, changeStatus,
 }) => (
   <CardWrapper id={id} status={status} imageUrl={imageUrl}>
-    <HeadingWrapper status={status}>
+    <HeadingWrapper status={status} onClick={() => changeStatus(id, status)}>
       <Heading>{name}</Heading>
     </HeadingWrapper>
     <ContentWrapper>
@@ -80,6 +81,7 @@ Card.propTypes = {
   description: PropTypes.string,
   status: PropTypes.oneOf(['unvisited', 'liked', 'notliked']),
   removeCard: PropTypes.func.isRequired,
+  changeStatus: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {
@@ -92,6 +94,7 @@ Card.defaultProps = {
 
 const mapDispatchToProps = (dispatch) => ({
   removeCard: (id) => dispatch(removeCard(id)),
+  changeStatus: (id, status) => dispatch(changeStatus(id, status)),
 });
 
 export default connect(null, mapDispatchToProps)(Card);

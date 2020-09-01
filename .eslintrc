@@ -18,7 +18,8 @@
                 "devDependencies": true
             }
         ],
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "no-shadow": "off"
     },
     "settings": {
         "import/resolver": {

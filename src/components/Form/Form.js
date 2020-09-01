@@ -75,7 +75,7 @@ const TextArea = styled.textarea`
   }
 `;
 
-const AddRestaurantForm = ({ addCard, toggle }) => {
+const AddRestaurantForm = ({ addCard }) => {
   const [name, setName] = useState('');
   const [link, setLink] = useState('');
   const [imageUrl, setImage] = useState('');
@@ -132,7 +132,7 @@ const AddRestaurantForm = ({ addCard, toggle }) => {
           link,
           imageUrl,
           description,
-        }), toggle}
+        })}
         modalAdd
       >
         Add
@@ -144,7 +144,6 @@ const AddRestaurantForm = ({ addCard, toggle }) => {
 
 AddRestaurantForm.propTypes = {
   addCard: PropTypes.func.isRequired,
-  toggle: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

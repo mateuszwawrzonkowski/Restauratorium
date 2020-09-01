@@ -95,6 +95,10 @@ ${({ remove }) => remove && css`
     :hover{
         animation:none;
     }
+    :focus{
+      box-shadow: inset 0 0 10px #000000;
+      background-color: black;
+    }
     `}
 `;
 

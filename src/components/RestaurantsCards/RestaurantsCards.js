@@ -7,7 +7,7 @@ import { VisibilityFilters } from 'actions';
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding-bottom:50px;
   flex-wrap: wrap;
   overflow: auto;

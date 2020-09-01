@@ -1,13 +1,26 @@
 import { combineReducers } from 'redux';
 import visibilityFilter from 'reducers/visibilityFilters';
 
+const switchStatus = (status) => {
+  switch (status) {
+    case 'liked':
+      return 'unvisited';
+    case 'unvisited':
+      return 'notliked';
+    case 'notliked':
+      return 'liked';
+    default:
+      return 'unvisited';
+  }
+};
+
 const initialState = {
   cards: [
     {
       id: 0,
       name: 'Kura',
       link: 'https://www.facebook.com/restauracjakura',
-      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93303605_513901102638363_4212623255288152064_o.jpg?_nc_cat=105&_nc_sid=dd9801&_nc_ohc=fwxx1cdksp0AX-rV2em&_nc_ht=scontent-waw1-1.xx&oh=acb18bd9f16e722462af7d91f5ad5433&oe=5F3A9FCF',
+      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93303605_513901102638363_4212623255288152064_o.jpg?_nc_cat=105&_nc_sid=e3f864&_nc_ohc=-DRgE2eLpfkAX8SBefh&_nc_ht=scontent-waw1-1.xx&oh=fa86242893857acbb5adf1bca458be26&oe=5F75F34F',
       description: 'Restaurant with the best chicken in the world',
       status: 'liked',
     },
@@ -15,7 +28,7 @@ const initialState = {
       id: 1,
       name: 'Ciao a tutti',
       link: 'https://www.facebook.com/ciaotuttipizza/',
-      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/117122611_3159910464058104_8421524699655713680_n.jpg?_nc_cat=107&_nc_sid=110474&_nc_ohc=H0_Dup9MnXsAX-j8Ep0&_nc_ht=scontent-waw1-1.xx&oh=58468befe76b29eb5f8a44f055ede6ec&oe=5F4DBF00',
+      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/38406471_1779868078729023_5225533486084915200_n.jpg?_nc_cat=110&_nc_sid=09cbfe&_nc_ohc=ensq0sCewp4AX_DDLHA&_nc_ht=scontent-waw1-1.xx&oh=64a61d936696e9e23503bd61c353452d&oe=5F72E0BE',
       description: 'Restaurant with pizza, medium prices',
       status: 'notliked',
     },
@@ -23,7 +36,7 @@ const initialState = {
       id: 2,
       name: 'Shuk',
       link: 'https://www.facebook.com/SHUK.grojecka107/',
-      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/s960x960/44450375_1835341913168399_5316685031547076608_o.jpg?_nc_cat=109&_nc_sid=dd9801&_nc_ohc=Fq2TdhKqw9sAX8V-lMV&_nc_ht=scontent-waw1-1.xx&_nc_tp=7&oh=4b429b43dd34475b6875c84e3469592c&oe=5F4DC2F3',
+      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/13325687_1005646456137953_2742451417741964503_n.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=rJNMWA82bFcAX85q5jf&_nc_ht=scontent-waw1-1.xx&oh=d974bb5c0aad7382b6563587ae881c53&oe=5F75EA50',
       description: 'Restaurant with mezze',
       status: 'unvisited',
     },
@@ -47,7 +60,7 @@ const initialState = {
       id: 5,
       name: 'Kura Warzywa',
       link: 'https://www.facebook.com/kurawarzywwarszawa/',
-      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93607298_844809556022626_8036294289430413312_n.png?_nc_cat=100&_nc_sid=85a577&_nc_ohc=5iZDn15N0sYAX_3clGD&_nc_ht=scontent-waw1-1.xx&oh=3793d4677bb46e9c8cb77d8113437daa&oe=5F4D5EF1',
+      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93607298_844809556022626_8036294289430413312_n.png?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=qVyDkbDaUY0AX9wMfNN&_nc_ht=scontent-waw1-1.xx&oh=2cfbfb25568eef602f050f91df4fda65&oe=5F74EBF1',
       description: 'Gemuse kebab, medium price',
       status: 'notliked',
     },
@@ -55,7 +68,7 @@ const initialState = {
       id: 6,
       name: 'Kura Warzywa',
       link: 'https://www.facebook.com/kurawarzywwarszawa/',
-      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93607298_844809556022626_8036294289430413312_n.png?_nc_cat=100&_nc_sid=85a577&_nc_ohc=5iZDn15N0sYAX_3clGD&_nc_ht=scontent-waw1-1.xx&oh=3793d4677bb46e9c8cb77d8113437daa&oe=5F4D5EF1',
+      imageUrl: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/93607298_844809556022626_8036294289430413312_n.png?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=qVyDkbDaUY0AX9wMfNN&_nc_ht=scontent-waw1-1.xx&oh=2cfbfb25568eef602f050f91df4fda65&oe=5F74EBF1',
       description: 'Gemuse kebab, medium price',
       status: 'notliked',
     },
@@ -87,6 +100,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         cards: state.cards.filter((item) => item.name.toLowerCase().includes(action.payload.value)),
+      };
+    case ('CHANGE_STATUS'):
+      return {
+        ...state,
+        cards: state.cards.map((item) => (item.id === action.payload.id
+          ? { ...item, status: switchStatus(item.status) } : { ...item })),
       };
     default:
       return state;
