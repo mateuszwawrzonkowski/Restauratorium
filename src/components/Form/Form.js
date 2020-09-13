@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
@@ -80,6 +80,20 @@ const AddRestaurantForm = ({ addCard }) => {
   const [link, setLink] = useState('');
   const [imageUrl, setImage] = useState('');
   const [description, setDescription] = useState('');
+
+  useEffect(() => {
+    setImage(() => {
+      const imageLink = [];
+      for (let i = link.length; i >= 0; i -= 1) {
+        if (link[i] === '/') {
+          break;
+        } else {
+          imageLink.push(link[i]);
+        }
+      }
+      return `https://graph.facebook.com/${imageLink.reverse().join('')}/picture?type=large`;
+    });
+  }, [link]);
   return (
     <FormWrapper>
       <Title>Add new restaurant</Title>
@@ -104,16 +118,16 @@ const AddRestaurantForm = ({ addCard }) => {
           />
           <Label htmlFor="link">Facebook link</Label>
         </InputItem>
-        <InputItem>
+        {/* <InputItem>
           <Input
             type="text"
             name="image"
             id="image"
             value={imageUrl}
-            onChange={(e) => setImage(e.target.value)}
+            onChange={console.log(link)} // zmienic zeby bralo link i zwracalo nazwe knajpy
           />
           <Label htmlFor="image">Image Url</Label>
-        </InputItem>
+        </InputItem> */}
         <InputItem>
           <TextArea
             name="description"

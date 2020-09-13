@@ -19,16 +19,16 @@ const RestaurantsCards = ({ cards }) => (
     {cards.map(({
       id, name, imageUrl, link, description, status,
     }) => (
-      <Card
-        key={id}
-        id={id}
-        name={name}
-        imageUrl={imageUrl}
-        link={link}
-        description={description}
-        status={status}
-      />
-    ))}
+        <Card
+          key={id}
+          id={id}
+          name={name}
+          imageUrl={imageUrl}
+          link={link}
+          description={description}
+          status={status}
+        />
+      ))}
   </Wrapper>
 );
 

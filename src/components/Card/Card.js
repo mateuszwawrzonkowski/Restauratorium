@@ -57,6 +57,7 @@ const Heading = styled.h1`
 const Description = styled.p`
     margin:0 15px;
     line-height: 20px;
+    font-size:1.8rem;
 `;
 const Card = ({
   id, name, link, imageUrl, description, status, removeCard, changeStatus,
