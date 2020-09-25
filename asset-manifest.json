@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/Restauratorium/static/js/main.2cff01c6.chunk.js",
+    "main.js.map": "/Restauratorium/static/js/main.2cff01c6.chunk.js.map",
+    "runtime-main.js": "/Restauratorium/static/js/runtime-main.38d8d1d9.js",
+    "runtime-main.js.map": "/Restauratorium/static/js/runtime-main.38d8d1d9.js.map",
+    "static/js/2.7ad5b099.chunk.js": "/Restauratorium/static/js/2.7ad5b099.chunk.js",
+    "static/js/2.7ad5b099.chunk.js.map": "/Restauratorium/static/js/2.7ad5b099.chunk.js.map",
+    "index.html": "/Restauratorium/index.html",
+    "precache-manifest.f66064ab3d3829015bbf4c12443a1bc1.js": "/Restauratorium/precache-manifest.f66064ab3d3829015bbf4c12443a1bc1.js",
+    "service-worker.js": "/Restauratorium/service-worker.js",
+    "static/js/2.7ad5b099.chunk.js.LICENSE.txt": "/Restauratorium/static/js/2.7ad5b099.chunk.js.LICENSE.txt",
+    "static/media/background.png": "/Restauratorium/static/media/background.68cbbfcb.png",
+    "static/media/search-solid.svg": "/Restauratorium/static/media/search-solid.8297cd8d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.38d8d1d9.js",
+    "static/js/2.7ad5b099.chunk.js",
+    "static/js/main.2cff01c6.chunk.js"
+  ]
+}
