@@ -66,21 +66,22 @@ const initialState = {
     },
     {
       id: 6,
-      name: 'Kura Warzywa',
-      link: 'https://www.facebook.com/kurawarzywwarszawa',
-      imageUrl: 'https://graph.facebook.com/kurawarzywwarszawa/picture?type=large',
-      description: 'Gemuse kebab, medium price',
-      status: 'notliked',
+      name: 'Casa Mia Pizza',
+      link: 'https://www.facebook.com/casamiawarszawa',
+      imageUrl: 'https://graph.facebook.com/casamiawarszawa/picture?type=large',
+      description: 'Very good, neapolitan pizza, medium price',
+      status: 'liked',
     },
     {
       id: 7,
-      name: 'Pumpui Thai Food',
-      link: 'https://www.facebook.com/pumpuithaifood',
-      imageUrl: 'https://graph.facebook.com/pumpuithaifood/picture?type=large',
-      description: 'Authenthic thai food',
+      name: 'Belvedere',
+      link: 'https://www.facebook.com/BelvedereLazienkiKrolewskie',
+      imageUrl: 'https://graph.facebook.com/BelvedereLazienkiKrolewskie/picture?type=large',
+      description: 'Restauracja Belvedere to jedno z najpiękniejszych i najbardziej oryginalnych miejsc na kulinarnej mapie Polski',
       status: 'liked',
     },
   ],
+  value: 'k',
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -96,13 +97,18 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cards: state.cards.filter((item) => item.id !== action.payload.id),
       };
+    // case ('SEARCH_CARD'):
+    //   const names = state.cards.filter((item) =>
+    //   (item.name.toLowerCase().includes(action.payload.value)));
+    //   return {
+    //     ...state,
+    //     cards: [...state.cards,
+    //       state.cards.filter((item) => (item.name.includes(action.payload.value)))],
+    //   };
     case ('SEARCH_CARD'):
-      // const names = state.cards.filter((item) =>
-      // (item.name.toLowerCase().includes(action.payload.value)));
       return {
         ...state,
-        cards: [...state.cards,
-          state.cards.filter((item) => (item.name.includes(action.payload.value)))],
+        value: action.value,
       };
     case ('CHANGE_STATUS'):
       return {

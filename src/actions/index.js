@@ -20,9 +20,7 @@ export const addCard = (cardContent) => {
 
 export const searchCard = (value) => ({
   type: 'SEARCH_CARD',
-  payload: {
-    value,
-  },
+  value,
 });
 
 export const changeStatus = (id, status) => ({
@@ -43,4 +41,5 @@ export const VisibilityFilters = {
   SHOW_LIKED: 'SHOW_LIKED',
   SHOW_UNVISITED: 'SHOW_UNVISITED',
   SHOW_NOTLIKED: 'SHOW_NOTLIKED',
+  SHOW_SEARCHED: 'SHOW_SEARCHED',
 };

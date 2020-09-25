@@ -39,7 +39,7 @@ function App() {
           <>
             <Background>
               <MainWrapper>
-                {/* <SearchInput /> */}
+                <SearchInput />
                 <SelectionMenu />
                 <RestaurantsCards />
               </MainWrapper>

@@ -19,16 +19,16 @@ const RestaurantsCards = ({ cards }) => (
     {cards.map(({
       id, name, imageUrl, link, description, status,
     }) => (
-        <Card
-          key={id}
-          id={id}
-          name={name}
-          imageUrl={imageUrl}
-          link={link}
-          description={description}
-          status={status}
-        />
-      ))}
+      <Card
+        key={id}
+        id={id}
+        name={name}
+        imageUrl={imageUrl}
+        link={link}
+        description={description}
+        status={status}
+      />
+    ))}
   </Wrapper>
 );
 
@@ -48,7 +48,7 @@ RestaurantsCards.defaultProps = {
   cards: [],
 };
 
-const filterCards = (cards, filter) => {
+const filterCards = (cards, filter, value) => {
   switch (filter) {
     case VisibilityFilters.SHOW_ALL:
       return cards.filter((card) => card);
@@ -58,13 +58,15 @@ const filterCards = (cards, filter) => {
       return cards.filter((card) => card.status === 'unvisited');
     case VisibilityFilters.SHOW_NOTLIKED:
       return cards.filter((card) => card.status === 'notliked');
+    case VisibilityFilters.SHOW_SEARCHED:
+      return cards.filter((card) => card.name.toLowerCase().includes(value));
     default:
       return cards;
   }
 };
 
 const mapStateToProps = (state) => ({
-  cards: filterCards(state.rootReducer.cards, state.visibilityFilter),
+  cards: filterCards(state.rootReducer.cards, state.visibilityFilter, state.rootReducer.value),
 });
 
 export default connect(mapStateToProps)(RestaurantsCards);
