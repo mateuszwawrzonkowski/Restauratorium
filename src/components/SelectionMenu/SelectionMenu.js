@@ -12,7 +12,6 @@ const Wrapper = styled.div`
     height: 70px;
     background-color: ${({ theme }) => theme.backgroundTransparent};
     border-radius: 45px;
-    margin-top:45px;
     margin-bottom: 45px;
 `;
 const Line = styled.span`
