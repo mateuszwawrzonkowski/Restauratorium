@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import store from 'store';
+
 import GlobalStyle from 'theme/globalStyles';
 import { theme } from 'theme/mainTheme';
+
 import SearchInput from 'components/Input/SearchInput';
 import SelectionMenu from 'components/SelectionMenu/SelectionMenu';
 import RestaurantsCards from 'components/RestaurantsCards/RestaurantsCards';
@@ -19,7 +21,7 @@ const Background = styled.div`
 
 const MainWrapper = styled.div`
    margin: 0 auto;
-   width: 1165px;
+   max-width: 1165px;
    max-height: 100vh;
    overflow: hidden;
 `;

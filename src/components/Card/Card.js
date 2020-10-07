@@ -26,7 +26,7 @@ const HeadingWrapper = styled.div`
 display: flex;
 justify-content:center;
 align-items: center;
-height: 50px;
+height: 60px;
 width: 100%;
 background-color: ${({ status, theme }) => (status ? theme[status] : theme.unvisited)};
 cursor: pointer;

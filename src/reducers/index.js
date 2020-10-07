@@ -17,7 +17,7 @@ const switchStatus = (status) => {
 const initialState = {
   cards: [
     {
-      id: 0,
+      id: '0',
       name: 'Kura',
       link: 'https://www.facebook.com/restauracjakura',
       imageUrl: 'https://graph.facebook.com/restauracjakura/picture?type=large',
@@ -25,7 +25,7 @@ const initialState = {
       status: 'liked',
     },
     {
-      id: 1,
+      id: '1',
       name: 'Ciao a tutti',
       link: 'https://www.facebook.com/ciaotuttipizza',
       imageUrl: 'https://graph.facebook.com/ciaotuttipizza/picture?type=large',
@@ -33,7 +33,7 @@ const initialState = {
       status: 'notliked',
     },
     {
-      id: 2,
+      id: '2',
       name: 'Shuk',
       link: 'https://www.facebook.com/SHUK.grojecka107',
       imageUrl: 'https://graph.facebook.com/SHUK.grojecka107/picture?type=large',
@@ -41,7 +41,7 @@ const initialState = {
       status: 'unvisited',
     },
     {
-      id: 3,
+      id: '3',
       name: 'Bar Pacyfik',
       link: 'https://www.facebook.com/barpacyfik',
       imageUrl: 'https://graph.facebook.com/barpacyfik/picture?type=large',
@@ -49,7 +49,7 @@ const initialState = {
       status: 'liked',
     },
     {
-      id: 4,
+      id: '4',
       name: 'Pumpui Thai Food',
       link: 'https://www.facebook.com/pumpuithaifood',
       imageUrl: 'https://graph.facebook.com/pumpuithaifood/picture?type=large',
@@ -57,7 +57,7 @@ const initialState = {
       status: 'liked',
     },
     {
-      id: 5,
+      id: '5',
       name: 'Kura Warzywa',
       link: 'https://www.facebook.com/kurawarzywwarszawa',
       imageUrl: 'https://graph.facebook.com/kurawarzywwarszawa/picture?type=large',
@@ -65,7 +65,7 @@ const initialState = {
       status: 'notliked',
     },
     {
-      id: 6,
+      id: '6',
       name: 'Casa Mia Pizza',
       link: 'https://www.facebook.com/casamiawarszawa',
       imageUrl: 'https://graph.facebook.com/casamiawarszawa/picture?type=large',
@@ -73,7 +73,7 @@ const initialState = {
       status: 'liked',
     },
     {
-      id: 7,
+      id: '7',
       name: 'Belvedere',
       link: 'https://www.facebook.com/BelvedereLazienkiKrolewskie',
       imageUrl: 'https://graph.facebook.com/BelvedereLazienkiKrolewskie/picture?type=large',
@@ -81,7 +81,7 @@ const initialState = {
       status: 'liked',
     },
   ],
-  value: 'k',
+  value: '',
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -97,14 +97,6 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         cards: state.cards.filter((item) => item.id !== action.payload.id),
       };
-    // case ('SEARCH_CARD'):
-    //   const names = state.cards.filter((item) =>
-    //   (item.name.toLowerCase().includes(action.payload.value)));
-    //   return {
-    //     ...state,
-    //     cards: [...state.cards,
-    //       state.cards.filter((item) => (item.name.includes(action.payload.value)))],
-    //   };
     case ('SEARCH_CARD'):
       return {
         ...state,

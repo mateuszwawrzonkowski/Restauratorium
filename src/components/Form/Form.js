@@ -146,6 +146,7 @@ const AddRestaurantForm = ({ addCard }) => {
           link,
           imageUrl,
           description,
+          status: 'unvisited',
         })}
         modalAdd
       >
