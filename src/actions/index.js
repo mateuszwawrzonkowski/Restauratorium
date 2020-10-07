@@ -1,5 +1,7 @@
+import * as actionTypes from 'actions/actionTypes';
+
 export const removeCard = (id) => ({
-  type: 'REMOVE_CARD',
+  type: actionTypes.REMOVE_CARD,
   payload: {
     id,
   },
@@ -8,7 +10,7 @@ export const removeCard = (id) => ({
 export const addCard = (cardContent) => {
   const getId = () => `_${Math.random().toString(36).substr(2, 9)}`;
   return {
-    type: 'ADD_CARD',
+    type: actionTypes.ADD_CARD,
     payload: {
       card: {
         id: getId(),
@@ -19,12 +21,12 @@ export const addCard = (cardContent) => {
 };
 
 export const searchCard = (value) => ({
-  type: 'SEARCH_CARD',
+  type: actionTypes.SEARCH_CARD,
   value,
 });
 
 export const changeStatus = (id, status) => ({
-  type: 'CHANGE_STATUS',
+  type: actionTypes.CHANGE_STATUS,
   payload: {
     id,
     status,
@@ -32,7 +34,7 @@ export const changeStatus = (id, status) => ({
 });
 
 export const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
+  type: actionTypes.SET_VISIBILITY_FILTER,
   filter,
 });
 

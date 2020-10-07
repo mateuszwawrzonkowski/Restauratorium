@@ -1,0 +1,5 @@
+export const REMOVE_CARD = 'REMOVE_CARD';
+export const ADD_CARD = 'ADD_CARD';
+export const SEARCH_CARD = 'SEARCH_CARD';
+export const CHANGE_STATUS = 'CHANGE_STATUS';
+export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';

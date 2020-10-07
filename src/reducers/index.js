@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import visibilityFilter from 'reducers/visibilityFilters';
+import * as actionTypes from 'actions/actionTypes';
 
 const switchStatus = (status) => {
   switch (status) {
@@ -86,23 +87,23 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ('ADD_CARD'):
+    case (actionTypes.ADD_CARD):
       return {
         ...state,
         cards: [...state.cards,
           action.payload.card],
       };
-    case ('REMOVE_CARD'):
+    case (actionTypes.REMOVE_CARD):
       return {
         ...state,
         cards: state.cards.filter((item) => item.id !== action.payload.id),
       };
-    case ('SEARCH_CARD'):
+    case (actionTypes.SEARCH_CARD):
       return {
         ...state,
         value: action.value,
       };
-    case ('CHANGE_STATUS'):
+    case (actionTypes.CHANGE_STATUS):
       return {
         ...state,
         cards: state.cards.map((item) => (item.id === action.payload.id
